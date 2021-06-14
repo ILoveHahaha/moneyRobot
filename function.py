@@ -29,9 +29,9 @@ def compare_smart_and_normal_invest(df, week, invest_cash, trade_rate, can_sell=
     if can_sell:
         for i in range(0, df.shape[0]):
             if i == 0:
-                df.loc['smart_share'][i] = 0 + df['si_share'][i]
+                df.loc['smart_share', i] = 0 + df['si_share'][i]
             if i != 0:
-                df.loc['smart_share'][i] = df['si_share'][i] + df['smart_share'][i - 1]
+                df.loc['smart_share', i] = df['si_share'][i] + df['smart_share'][i - 1]
             if df['smart_share'][i] < 0:
                 df['smart_share'][i] = 0
                 if i != 0:
